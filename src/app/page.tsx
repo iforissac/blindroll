@@ -124,15 +124,25 @@ export default function Home() {
         </header>
 
         {/* 核心玩法說明 */}
-        <section className="max-w-[320px] space-y-5">
-            <div className="space-y-3 text-zinc-300" style={{ fontFamily: 'var(--font-noto-serif)' }}>
+        <section className="max-w-[320px] space-y-8">
+            <div className="space-y-6 text-zinc-300" style={{ fontFamily: 'var(--font-noto-serif)' }}>
                 <p className="text-[13px] font-medium leading-relaxed tracking-wide text-zinc-200">
                     受「六度分隔理論」啟發，我們相信六個陌生的視角，足以串聯起整個世界。
                 </p>
                 <p className="text-[12px] font-medium leading-relaxed text-zinc-400">
-                    認領主體並完成拍攝，剩下的空白將留給其他旅人。當六份視角匯合，即可查看不同眼睛下的共同世界。
+                    認領主題並完成拍攝，剩下的空白將留給其他旅人。當六份視角匯合，即可查看不同眼睛下的共同世界。
                 </p>
-                <div className="pt-1">
+                
+                <div className="space-y-4 pt-2">
+                    <p className="text-[11px] font-medium leading-relaxed text-zinc-500 border-l border-zinc-900 pl-4 text-left">
+                        領取主題後，你有 3 小時的時間按下快門。逾時名額將會自動釋出，但別擔心，你隨時可以重新參與。
+                    </p>
+                    <p className="text-[11px] font-medium leading-relaxed text-zinc-500 border-l border-zinc-900 pl-4 text-left">
+                        當菲林圓滿，集體創作的成果便會揭曉。所有照片僅存放 48 小時——因為唯有消逝，回憶才有重量。
+                    </p>
+                </div>
+
+                <div className="pt-2">
                     <p className="text-[8px] text-zinc-600 font-medium uppercase tracking-[0.2em] leading-normal">
                         Claim a subject to start; we leave the remaining blanks for others to fill. 
                         Once six visions converge, witness the world through these different eyes.
@@ -181,7 +191,10 @@ export default function Home() {
                         </>
                     )}
                 </button>
-                <button onClick={() => setShowDuoInput(true)} disabled={loading} className="py-4 border border-zinc-900 text-zinc-600 flex items-center justify-center gap-3 hover:text-white hover:border-zinc-500 transition-all"><UserPlus className="w-4 h-4" /><span className="text-[9px] font-black uppercase tracking-[0.4em]">Start Duo Journey</span></button>
+                <div className="space-y-3">
+                    <button onClick={() => setShowDuoInput(true)} disabled={loading} className="w-full py-4 border border-zinc-900 text-zinc-600 flex items-center justify-center gap-3 hover:text-white hover:border-zinc-500 transition-all"><Users className="w-4 h-4" /><span className="text-[9px] font-black uppercase tracking-[0.4em]">Start Duo Journey</span></button>
+                    <p className="text-[8px] text-zinc-800 uppercase tracking-widest font-medium">Create a private roll for two. Invite a friend to capture the other half.</p>
+                </div>
             </div>
           )}
         </section>
