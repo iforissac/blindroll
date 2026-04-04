@@ -124,25 +124,15 @@ export default function Home() {
         </header>
 
         {/* 核心玩法說明 */}
-        <section className="max-w-[320px] space-y-8">
-            <div className="space-y-6 text-zinc-300" style={{ fontFamily: 'var(--font-noto-serif)' }}>
+        <section className="max-w-[320px] space-y-5">
+            <div className="space-y-3 text-zinc-300" style={{ fontFamily: 'var(--font-noto-serif)' }}>
                 <p className="text-[13px] font-medium leading-relaxed tracking-wide text-zinc-200">
                     受「六度分隔理論」啟發，我們相信六個陌生的視角，足以串聯起整個世界。
                 </p>
                 <p className="text-[12px] font-medium leading-relaxed text-zinc-400">
                     認領主題並完成拍攝，剩下的空白將留給其他旅人。當六份視角匯合，即可查看不同眼睛下的共同世界。
                 </p>
-                
-                <div className="space-y-4 pt-2">
-                    <p className="text-[11px] font-medium leading-relaxed text-zinc-500 border-l border-zinc-900 pl-4 text-left">
-                        領取主題後，你有 3 小時的時間按下快門。逾時名額將會自動釋出，但別擔心，你隨時可以重新參與。
-                    </p>
-                    <p className="text-[11px] font-medium leading-relaxed text-zinc-500 border-l border-zinc-900 pl-4 text-left">
-                        當菲林圓滿，集體創作的成果便會揭曉。所有照片僅存放 48 小時——因為唯有消逝，回憶才有重量。
-                    </p>
-                </div>
-
-                <div className="pt-2">
+                <div className="pt-1">
                     <p className="text-[8px] text-zinc-600 font-medium uppercase tracking-[0.2em] leading-normal">
                         Claim a subject to start; we leave the remaining blanks for others to fill. 
                         Once six visions converge, witness the world through these different eyes.
@@ -156,11 +146,16 @@ export default function Home() {
         <section className="w-full min-h-[350px]">
           {currentMission ? (
             <div className="w-full aspect-square border border-white/10 flex flex-col items-center justify-center gap-8 relative bg-zinc-900/20 backdrop-blur-sm shadow-2xl animate-in zoom-in-95 fade-in duration-700">
-                <div className="absolute top-6 flex items-center gap-2 px-3 py-1 bg-amber-500/10 rounded-full border border-amber-500/20">
-                    <Timer className="w-3 h-3 text-amber-500 animate-pulse" />
-                    <span className="text-[9px] uppercase tracking-[0.2em] text-amber-500 font-black">{timeLeft}</span>
+                <div className="absolute top-6 flex flex-col items-center gap-2">
+                    <div className="flex items-center gap-2 px-3 py-1 bg-amber-500/10 rounded-full border border-amber-500/20">
+                        <Timer className="w-3 h-3 text-amber-500 animate-pulse" />
+                        <span className="text-[9px] uppercase tracking-[0.2em] text-amber-500 font-black">{timeLeft}</span>
+                    </div>
+                    <p className="text-[10px] text-zinc-500 font-medium mt-2 max-w-[200px] leading-relaxed" style={{ fontFamily: 'var(--font-noto-serif)' }}>
+                        你有 3 小時的時間按下快門。逾時名額將自動釋出，歡迎重新參與。
+                    </p>
                 </div>
-                <div className="space-y-3 px-6">
+                <div className="space-y-3 px-6 mt-8">
                     <h2 className="text-4xl font-black italic tracking-tighter text-white uppercase flex items-center justify-center gap-3" style={{ fontFamily: 'var(--font-noto-serif)' }}>
                         {currentMission.theme}
                         {currentMission.is_private && <Users className="w-5 h-5 text-amber-500/40" />}
@@ -193,7 +188,7 @@ export default function Home() {
                 </button>
                 <div className="space-y-3">
                     <button onClick={() => setShowDuoInput(true)} disabled={loading} className="w-full py-4 border border-zinc-900 text-zinc-600 flex items-center justify-center gap-3 hover:text-white hover:border-zinc-500 transition-all"><Users className="w-4 h-4" /><span className="text-[9px] font-black uppercase tracking-[0.4em]">Start Duo Journey</span></button>
-                    <p className="text-[8px] text-zinc-800 uppercase tracking-widest font-medium">Create a private roll for two. Invite a friend to capture the other half.</p>
+                    <p className="text-[9px] text-zinc-500 uppercase tracking-widest font-bold">Create a private roll for two. Invite a friend to capture the other half.</p>
                 </div>
             </div>
           )}
@@ -263,7 +258,14 @@ export default function Home() {
           )}
         </section>
 
-        <footer className="mt-16 text-[8px] text-zinc-900 uppercase tracking-[0.6em] leading-relaxed max-w-[240px] font-serif italic text-center mx-auto">Six stranger perspectives,<br />One shared vision.</footer>
+        <section className="w-full py-12 text-center space-y-4">
+            <p className="text-[11px] text-zinc-500 leading-relaxed max-w-[280px] mx-auto" style={{ fontFamily: 'var(--font-noto-serif)' }}>
+                當菲林圓滿，集體創作的成果便會揭曉。所有照片僅存放 48 小時——因為唯有消逝，回憶才有重量。
+            </p>
+            <div className="h-px w-4 bg-zinc-900 mx-auto" />
+        </section>
+
+        <footer className="mt-8 text-[8px] text-zinc-900 uppercase tracking-[0.6em] leading-relaxed max-w-[240px] font-serif italic text-center mx-auto">Six stranger perspectives,<br />One shared vision.</footer>
       </main>
     </div>
   );
