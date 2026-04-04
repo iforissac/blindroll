@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { THEMES } from '@/lib/constants';
-import { Loader2, Camera, UserGroupIcon } from 'lucide-react';
+import { Loader2, Camera, Users } from 'lucide-react';
 
 export default function InvitePage() {
   const params = useParams();
