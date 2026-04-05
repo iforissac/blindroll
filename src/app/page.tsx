@@ -155,7 +155,9 @@ export default function Home() {
                         <span className="text-[9px] uppercase tracking-[0.2em] text-amber-500 font-black">{timeLeft}</span>
                     </div>
                     <p className="text-[10px] text-zinc-500 font-medium mt-2 max-w-[200px] leading-relaxed" style={{ fontFamily: 'var(--font-noto-serif)' }}>
-                        你有 3 小時的時間按下快門。逾時名額將自動釋出，歡迎重新參與。
+                        {currentMission.is_private 
+                          ? "你有 24 小時的時間與旅伴合力完成這卷菲林。逾期該相機將會自動失效。"
+                          : "你有 3 小時的時間按下快門。逾時名額將自動釋出，歡迎重新參與。"}
                     </p>
                 </div>
                 <div className="space-y-3 px-6 mt-8">
