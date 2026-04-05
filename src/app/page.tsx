@@ -78,7 +78,10 @@ export default function Home() {
   const handleDraw = async (type: 'solo' | 'duo') => {
     setLoading(true);
     try {
-      const roll = await drawCamera(getUserId(), type === 'duo' ? customTheme : undefined);
+      const roll = type === 'duo' 
+        ? await createDuoRoll(getUserId(), customTheme)
+        : await drawCamera(getUserId());
+        
       localStorage.setItem('blind_roll_assigned_id', roll.id);
       setCurrentMission(roll);
       setShowDuoInput(false);
@@ -174,7 +177,7 @@ export default function Home() {
                         <button onClick={handleShare} className="flex items-center justify-center gap-3 w-full py-4 bg-zinc-900 border border-zinc-800 text-zinc-400 rounded-full hover:bg-zinc-800 transition-all"><Share2 className="w-4 h-4" /><span className="text-[10px] font-black uppercase tracking-widest">Invite Friend</span></button>
                     )}
                 </div>
-                <div className="absolute bottom-6 text-[8px] text-zinc-700 font-mono tracking-widest uppercase italic">{currentMission.is_private ? 'Duo Resonance' : `Frame #${currentMission.current_count + 1} / 12`}</div>
+                <div className="absolute bottom-6 text-[8px] text-zinc-700 font-mono tracking-widest uppercase italic">{currentMission.is_private ? 'Duo Resonance' : `Frame #${currentMission.current_count + 1} / ${currentMission.max_count}`}</div>
             </div>
           ) : (
             <div className="grid gap-4 w-full h-full animate-in fade-in duration-500">
