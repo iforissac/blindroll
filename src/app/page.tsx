@@ -188,7 +188,7 @@ export default function Home() {
                 <button onClick={() => handleDraw('solo')} disabled={loading} className="w-full aspect-square border border-zinc-900 flex flex-col items-center justify-center gap-4 group hover:border-zinc-700 transition-all relative overflow-hidden">
                     {loading ? <Loader2 className="w-8 h-8 animate-spin text-zinc-800" /> : (
                         <>
-                            <div className="w-12 h-12 rounded-full border border-zinc-900 flex items-center justify-center group-hover:border-zinc-500"><Zap className="w-5 h-5 text-zinc-800 group-hover:text-white" /></div>
+                            <div className="w-12 h-12 rounded-full border border-zinc-900 flex items-center justify-center group-hover:border-zinc-500"><Camera className="w-5 h-5 text-zinc-800 group-hover:text-white" /></div>
                             <span className="text-[9px] uppercase tracking-[0.5em] font-bold text-zinc-700 group-hover:text-zinc-400">Join Solo Experiment</span>
                         </>
                     )}
