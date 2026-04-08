@@ -94,7 +94,9 @@ export default function Home() {
   };
 
   const handleShare = () => {
-    const url = `${window.location.origin}/invite/${currentMission.id}`;
+    // 確保連結不帶 www. (Vercel 預設域名不支援 www)
+    const baseUrl = window.location.origin.replace('://www.', '://');
+    const url = `${baseUrl}/invite/${currentMission.id}`;
     navigator.clipboard.writeText(url);
     alert("專屬邀請函連結已複製！傳給你的朋友，讓他們完成另一半。");
   };
@@ -130,15 +132,15 @@ export default function Home() {
         <section className="max-w-[320px] space-y-5">
             <div className="space-y-3 text-zinc-300" style={{ fontFamily: 'var(--font-noto-serif)' }}>
                 <p className="text-[13px] font-medium leading-relaxed tracking-wide text-zinc-200">
-                    受「六度分隔理論」啟發，我們相信六個陌生的視角，足以串聯起整個世界。
+                    據說在任何兩位陌生人之間，只需透過六個人的牽線，就能串聯起整個世界。
                 </p>
                 <p className="text-[12px] font-medium leading-relaxed text-zinc-400">
-                    認領主題並完成拍攝，剩下的空白將留給其他旅人。當六份視角匯合，即可查看不同眼睛下的共同世界。
+                    我們正在進行一場關於視角的接力：你拍下一幀，剩下的任務將交由其他陌生人。當六份視角匯合，這卷共同的回憶便會揭曉。
                 </p>
                 <div className="pt-1">
                     <p className="text-[8px] text-zinc-600 font-medium uppercase tracking-[0.2em] leading-normal">
-                        Claim a subject to start; we leave the remaining blanks for others to fill. 
-                        Once six visions converge, witness the world through these different eyes.
+                        A relay of perspectives: you capture a frame, we leave the rest to others. 
+                        Once six visions converge, the collective memory is revealed.
                     </p>
                 </div>
             </div>
